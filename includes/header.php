@@ -50,7 +50,14 @@ if(isset($_SESSION['USER_ID']))
                       
                         <ul class="nav navbar-nav navbar-right nav_bar_a_color">
                             <li><a href="registration.php"><span class=" glyphicon glyphicon-eye-open"></span> Welcome <?php if(isset($_SESSION['USER_ID'])){ echo $user_detail['email'];  }else{ echo "Guest"; } ?></a></li>
-                            <li><a href="registration.php"><span class=" glyphicon glyphicon-eye-open"></span> Add</a></li>
+                            <?php
+                            if(isset($_SESSION['USER_ID'])){
+                             ?>
+                            <li><a href="source_destiny.php"><span class=" glyphicon glyphicon-eye-open"></span> Add</a></li>
+                            <?php
+                            }
+                             ?>
+                             
                             <li><a href="listing.php"><span class=" glyphicon glyphicon-eye-open"></span> Search</a></li>
                             <?php
                             if(isset($_SESSION['USER_ID'])){
