@@ -13,27 +13,40 @@ include('is_login.php');
          $s_state    = $_REQUEST['state'];
          $s_postal   = $_REQUEST['postal_code'];
          $s_country  = $_REQUEST['country'];
-         
-         $d_terminal = $_REQUEST["d_route"];
-         $d_city     = $_REQUEST['d_city'];
-         $d_state    = $_REQUEST['d_state'];
-         $d_postal   = $_REQUEST['d_postal_code'];
-         $d_country  = $_REQUEST['d_country'];
-         
-         if($s_terminal=="")
+         $vehicle_type = $_REQUEST['vehicle_type'];
+        
+         if($vehicle_type=="")
          {
-            $sMsg = $sMsg."Please enter Source Terminal!<br/>";
+            $sMsg = $sMsg."Please choose Vehicle Type!<br/>";
          }
          
+       //  if($s_terminal=="")
+//         {
+//            $sMsg = $sMsg."Please choose Terminal!<br/>";
+//         }
+//         if($country=="")
+//         {
+//            $sMsg = $sMsg."Please choose Country!<br/>";
+//         }
+//         if($state=="")
+//         {
+//            $sMsg = $sMsg."Please choose State!<br/>";
+//         }
+//         if($city=="")
+//         {
+//            $sMsg = $sMsg."Please choose City!<br/>";
+//         }
          
+         $s_datetime = date('Y-m-d h:i:s');
          
          if($sMsg=="")
          {
             
-               // mysql_query("insert into users(email,password)values('$email','$password')") or die("error".mysql_error());
+                mysql_query("insert into source_destiny(user_id,s_terminal,s_country,s_state,s_city,type,s_datetime)values('".$_SESSION['USER_ID']."','$s_terminal','$s_country','$s_state','$s_city','$vehicle_type','$s_datetime')") or die("error".mysql_error());
+                $insert_id = mysql_insert_id();
                 ob_clean();
                 $_SESSION['MSG'] = "<div class='msg'></div>";
-                header("location:listing.php");
+                header("location:source_destiny1.php?id=".$insert_id);
                 exit;
           
          }       
@@ -56,35 +69,13 @@ include('is_login.php');
                 }
                 ?>
                 
-              <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-   
     
-    <style>
-      #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
+   
               <h4>test</h4>
               <form role="form" method="post">
                     
                    
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Source Terminal</label>
-                        <?php
-                        //include('google_map.php');
-                         ?>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Destiny Terminal</label>
-                        <?php
-                        include('google_map1.php');
-                         ?>
-                      </div>
-                      
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Type</label>
                         <select class="form-control" name="vehicle_type">
                             <option value="">Select Type</option>
@@ -93,6 +84,16 @@ include('is_login.php');
                             
                         </select>
                       </div>
+                   
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Source Terminal</label>
+                        <?php
+                        include('google_map.php');
+                         ?>
+                      </div>
+                      
+                      
+
                      
                       <button type="submit" name="submit" class="btn btn-default">Submit</button>
                       <br /><br />
@@ -100,35 +101,7 @@ include('is_login.php');
 
               
         </div>
-    <script type="text/javascript">
-    var placeSearch, autocomplete;
-        var autocomplete1;
-    function initialize() {
-  // Create the autocomplete object, restricting the search
-  // to geographical location types.
- // autocomplete = new google.maps.places.Autocomplete(
-//      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
-//      { types: ['geocode'] });
-//  // When the user selects an address from the dropdown,
-//  // populate the address fields in the form.
-//  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-//    fillInAddress();
-//  });
   
-  
-   autocomplete1 = new google.maps.places.Autocomplete(
-      /** @type {HTMLInputElement} */(document.getElementById('autocomplete1')),
-      { types: ['geocode'] });
-  // When the user selects an address from the dropdown,
-  // populate the address fields in the form.
-  google.maps.event.addListener(autocomplete1, 'place_changed', function() {
-    fillInAddress1();
-  });
-}
-    
-       window.onload = initialize();
-        
-    </script>
     <?php
     include('includes/footer.php');
      ?>
