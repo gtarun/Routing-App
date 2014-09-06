@@ -68,7 +68,7 @@ include('is_login.php');
                 
     
    
-              <h4>test</h4>
+              <h4>Choose Destination</h4>
               <form role="form" method="post">
                     
                    
