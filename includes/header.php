@@ -82,7 +82,7 @@ if(isset($_SESSION['USER_ID']))
         
               <div class="container">
                     <div class="col-sm-8">
-                       <h1>Venturepact Routing Application</h1>
+                      <a href="index.html" style="color: #000;text-decoration: none!important;"><h1>Venturepact Routing Application</h1></a> 
                     </div>
                   
                </div> 
