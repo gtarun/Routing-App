@@ -2,7 +2,12 @@
 include('includes/header.php');
 
  ?>
-        
+<style>
+.press_div
+{
+    font-size: 12px;
+}
+</style>        
         <div class="container main_body">
               <?php
                if(isset($_SESSION['MSG']))
@@ -64,15 +69,52 @@ include('includes/header.php');
                 {
                     ?>
                      <div class="press_div">
-                        <b>Vehicle Type : </b> <?php echo ($row['type']==1)?"Bus":"Train"; ?><br />
-                        <b>Source :</b>  <?php echo $row['s_terminal']; ?>      <br />
-                        <b>Destination :</b> <?php echo $row['d_terminal']; ?>   <br />
-                        <b>Timing :</b> 
-                         <?php 
-                         echo $row['from_date']." - ".$row['to_date'];
-                          ?>     <br />
-                        <b>Description :</b> <?php echo $row['vehicle_detail']; ?>    <br />
+                        <?php
+                        if(false)
+                        {
+                         ?>
+                            <b>Vehicle Type : </b> <?php echo ($row['type']==1)?"Bus":"Train"; ?><br />
+                            <b>Source :</b>  <?php echo $row['s_terminal']; ?>      <br />
+                            <b>Destination :</b> <?php echo $row['d_terminal']; ?>   <br />
+                            <b>Timing :</b> 
+                             <?php 
+                             echo $row['from_date']." - ".$row['to_date'];
+                              ?>     <br />
+                            <b>Description :</b> <?php echo $row['vehicle_detail']; ?>    <br />
+                        <?php
+                        }
+                         ?>
+                         <div class="col-md-4">
+                                <b>From:</b><br />
+                             <?php echo $row['s_terminal']; ?>   
+                         </div>
+                         <div class="col-md-4">
+                            <?php
+                            $img_name = "bus.png";
+                            if($row['type']==2)
+                            {
+                                $img_name = "train.png";
+                            }
+                           
+                             ?>
+                             <img src="images/<?php echo $img_name; ?>" />
+                         </div>
+                         <div class="col-md-4">
+                            <b>To:</b><br />
+                            <?php echo $row['d_terminal']; ?>
+                         </div>
+                         
+                         <div style="clear: both;"></div>
+                         
+                         <div style="margin-left: 1.4%;">
+                         <b>Timing :</b> 
+                             <?php 
+                             echo $row['from_date']." - ".$row['to_date'];
+                              ?>
+                         </div>     
                      </div>
+                     
+                     
                     <?php
                 }
               }else{
