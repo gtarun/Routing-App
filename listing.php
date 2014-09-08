@@ -64,6 +64,7 @@ include('includes/header.php');
                 {
                     ?>
                      <div class="press_div">
+                        <b>Vehicle Type : </b> <?php echo ($row['type']==1)?"Bus":"Train"; ?><br />
                         <b>Source :</b>  <?php echo $row['s_terminal']; ?>      <br />
                         <b>Destination :</b> <?php echo $row['d_terminal']; ?>   <br />
                         <b>Timing :</b> 
