@@ -5,7 +5,7 @@ include('is_login.php');
 <script>
     function test()
     {
-        var confirm1 = confirm("Are You sure you have reached your destination");
+        var confirm1 = confirm("Are you sure you have reached your destination");
         if(confirm1 == true)
         {
             return true;
