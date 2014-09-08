@@ -58,7 +58,7 @@ include('includes/header.php');
               
               if(isset($_REQUEST['source']) && isset($_REQUEST['destination']))
               {
-                $where .= " and (s_terminal like'%".$_REQUEST['source']."%' or d_terminal like'%".$_REQUEST['destination']."%') ";
+                $where .= " and (s_terminal like'%".$_REQUEST['source']."%' and d_terminal like'%".$_REQUEST['destination']."%') ";
               }
               
              // echo "select *,DATE_FORMAT(s_datetime,'%H:%i:%s')as from_date,DATE_FORMAT(d_datetime,'%H:%i:%s')as to_date from source_destiny where 1=1 $where order by id desc";
