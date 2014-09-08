@@ -23,13 +23,13 @@ include('includes/header.php');
                     <div class="form-group">
                        <select class="form-control" name="vehicle_type">
                             <option value="">Select Type</option>
-                            <option value="1">Bus</option>
-                            <option value="2">Train</option>
+                            <option value="1" <?php if(isset($_REQUEST['vehicle_type'])){ echo ($_REQUEST['vehicle_type']==1)?"selected='selected'":""; } ?>>Bus</option>
+                            <option value="2" <?php if(isset($_REQUEST['vehicle_type'])){ echo ($_REQUEST['vehicle_type']==2)?"selected='selected'":""; } ?>>Train</option>
                             
                         </select><br />
                     
-                        <input type="text" class="form-control" name="source" placeholder="Source" /><br />
-                        <input type="text" class="form-control" name="destination" placeholder="Destination" />          
+                        <input type="text" class="form-control" name="source" value="<?php if(isset($_REQUEST['source'])) echo $_REQUEST['source']; ?>" placeholder="Source" /><br />
+                        <input type="text" class="form-control" name="destination" value="<?php if(isset($_REQUEST['destination'])) echo $_REQUEST['destination']; ?>" placeholder="Destination" />          
                         <div class="clear_class"></div>
                     </div>
                     
