@@ -96,6 +96,7 @@ include('is_login.php');
                         include('google_map.php');
                          ?>
                       </div>
+            
                       
                       
                       <button type="submit" name="submit" class="btn btn-default">Submit</button>

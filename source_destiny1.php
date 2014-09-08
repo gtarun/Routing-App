@@ -2,6 +2,18 @@
 include('includes/header.php');
 include('is_login.php');
  ?>
+<script>
+    function test()
+    {
+        var confirm1 = confirm("Are You sure you have reached your destination");
+        if(confirm1 == true)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 
      <?php
      $sMsg = "";
@@ -84,7 +96,7 @@ include('is_login.php');
                       
 
                      
-                      <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                      <button type="submit" onclick="return test();" name="submit" class="btn btn-default">Submit</button>
                       <br /><br />
                 </form>
 
