@@ -8,13 +8,13 @@ include('is_login.php');
      if(isset($_REQUEST['submit']))
      {
          
-         $s_terminal = $_REQUEST["route"];
+         $s_terminal = $_REQUEST["terminal"];
          $s_city     = $_REQUEST['city'];
          $s_state    = $_REQUEST['state'];
          $s_postal   = $_REQUEST['postal_code'];
          $s_country  = $_REQUEST['country'];
          $vehicle_type = $_REQUEST['vehicle_type'];
-        
+         $vehicle_detail = $_REQUEST['vehicle_detail'];
          if($vehicle_type=="")
          {
             $sMsg = $sMsg."Please choose Vehicle Type!<br/>";
@@ -38,14 +38,14 @@ include('is_login.php');
 //         }
          
          $s_datetime = date('Y-m-d h:i:s');
-         
+ 
          if($sMsg=="")
          {
             
-                mysql_query("insert into source_destiny(user_id,s_terminal,s_country,s_state,s_city,type,s_datetime)values('".$_SESSION['USER_ID']."','$s_terminal','$s_country','$s_state','$s_city','$vehicle_type','$s_datetime')") or die("error".mysql_error());
+                mysql_query("insert into source_destiny(vehicle_detail,user_id,s_terminal,s_country,s_state,s_city,type,s_datetime)values('$vehicle_detail','".$_SESSION['USER_ID']."','$s_terminal','$s_country','$s_state','$s_city','$vehicle_type','$s_datetime')") or die("error".mysql_error());
                 $insert_id = mysql_insert_id();
-                ob_clean();
-                $_SESSION['MSG'] = "<div class='msg'></div>";
+               // ob_clean();
+               // $_SESSION['MSG'] = "<div class='msg'></div>";
                 header("location:source_destiny1.php?id=".$insert_id);
                 exit;
           
@@ -84,7 +84,12 @@ include('is_login.php');
                             
                         </select>
                       </div>
-                   
+                      
+                     <div class="form-group">
+                        <label for="exampleInputPassword1">Vehicle detail</label>
+                        <textarea class="form-control" name="vehicle_detail" cols="30" rows="10"></textarea>
+                      </div>
+                           
                       <div class="form-group">
                         <label for="exampleInputPassword1">Source Terminal</label>
                         <?php
@@ -93,8 +98,6 @@ include('is_login.php');
                       </div>
                       
                       
-
-                     
                       <button type="submit" name="submit" class="btn btn-default">Submit</button>
                       <br /><br />
                 </form>

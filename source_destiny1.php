@@ -8,7 +8,7 @@ include('is_login.php');
      if(isset($_REQUEST['submit']))
      {
          
-         $d_terminal = $_REQUEST["route"];
+         $d_terminal = $_REQUEST["terminal"];
          $d_city     = $_REQUEST['city'];
          $d_state    = $_REQUEST['state'];
          $d_postal   = $_REQUEST['postal_code'];
@@ -42,7 +42,7 @@ include('is_login.php');
                 mysql_query("update source_destiny set d_terminal='$d_terminal',d_country='$d_country',d_state='$d_state',d_city='$d_city',d_datetime='$d_datetime' where id=".$_REQUEST['id']) or die("err".mysql_error());
                
                 ob_clean();
-                $_SESSION['MSG'] = "<div class='msg'></div>";
+                //$_SESSION['MSG'] = "<div class='msg'></div>";
                 header("location:listing.php");
                 exit;
           

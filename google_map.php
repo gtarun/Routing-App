@@ -125,15 +125,14 @@ function geolocate() {
 
   <body onload="initialize()">
     <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
+      <input id="autocomplete" name="terminal" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
     </div>
 
     <table id="address">
       <tr>
         <td class="label">Street address</td>
-        <td class="slimField"><input class="field" id="street_number" disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"  disabled="true"></input></td>
+        <td class="slimField"><input class="field" id="street_number" ></input></td>
+        <td class="wideField" colspan="2"><input class="field" id="route"  ></input></td>
       </tr>
       <tr>
         <td class="label">City</td>
