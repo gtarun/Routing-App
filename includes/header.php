@@ -17,7 +17,7 @@ if(isset($_SESSION['USER_ID']))
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hackaton</title>
+        <title>Venturapact Routing Application</title>
     
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -49,7 +49,7 @@ if(isset($_SESSION['USER_ID']))
                     <div class="navbar-collapse collapse">
                       
                         <ul class="nav navbar-nav navbar-right nav_bar_a_color">
-                            <li><a href="registration.php"><span class=" glyphicon glyphicon-eye-open"></span> Welcome <?php if(isset($_SESSION['USER_ID'])){ echo $user_detail['email'];  }else{ echo "Guest"; } ?></a></li>
+                            <li><a href="javascript:Void()"><span class=" glyphicon glyphicon-eye-open"></span> Welcome <?php if(isset($_SESSION['USER_ID'])){ echo $user_detail['email'];  }else{ echo "Guest"; } ?></a></li>
                             <?php
                             if(isset($_SESSION['USER_ID'])){
                              ?>
@@ -64,6 +64,11 @@ if(isset($_SESSION['USER_ID']))
                              ?>
                                 <li><a href="logout.php"><span class=" glyphicon glyphicon-eye-open"></span> Logout</a></li>
                             <?php
+                            }else{
+                                ?>
+                                <li><a href="login.php"><span class=" glyphicon glyphicon-eye-open"></span> Login</a></li>
+                                <?php
+                                
                             }
                              ?>
                         </ul>
@@ -77,7 +82,7 @@ if(isset($_SESSION['USER_ID']))
         
               <div class="container">
                     <div class="col-sm-8">
-                       <h1>Hackathon</h1>
+                       <h1>Venturapact Routing Application</h1>
                     </div>
                   
                </div> 
