@@ -38,7 +38,7 @@ include('includes/header.php');
                 <div class="search_filters">
                   
                      
-                     <button class="btn btn-default" name="submit" type="submit">Search</button>
+                     <button class="btn btn-default" name="submit" type="submit">Search</button> <a href="listing.php">Show all</a>
                     
                 </div>
                 
