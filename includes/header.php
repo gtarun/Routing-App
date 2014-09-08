@@ -67,6 +67,7 @@ if(isset($_SESSION['USER_ID']))
                             }else{
                                 ?>
                                 <li><a href="login.php"><span class=" glyphicon glyphicon-eye-open"></span> Login</a></li>
+                                <li><a href="registration.php"><span class=" glyphicon glyphicon-eye-open"></span> Register</a></li>
                                 <?php
                                 
                             }
