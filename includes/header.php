@@ -17,7 +17,7 @@ if(isset($_SESSION['USER_ID']))
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Venturapact Routing Application</title>
+        <title>Venturepact Routing Application</title>
     
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -82,7 +82,7 @@ if(isset($_SESSION['USER_ID']))
         
               <div class="container">
                     <div class="col-sm-8">
-                       <h1>Venturapact Routing Application</h1>
+                       <h1>Venturepact Routing Application</h1>
                     </div>
                   
                </div> 
